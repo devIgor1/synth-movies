@@ -15,3 +15,8 @@
     @apply flex justify-between items-center;
   }
 }
+
+@font-face {
+  font-family: VHS;
+  src: url("./fonts/VCR_OSD_MONO.ttf");
+}
