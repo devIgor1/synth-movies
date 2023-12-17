@@ -20,3 +20,13 @@
   font-family: VHS;
   src: url("./fonts/VCR_OSD_MONO.ttf");
 }
+
+@font-face {
+  font-family: Road-Rage;
+  src: url("./fonts/Road_Rage.otf");
+}
+
+.caret-vhs::selection {
+  background: #ff00ff;
+  caret-shape: bar;
+}

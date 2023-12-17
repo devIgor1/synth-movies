@@ -13,13 +13,17 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "background-image": "url('/assets/images/background.jpg')",
+        "login-background": "url('/assets/images/login.jpg')",
       },
       colors: {
         header: "#3E005B",
         pinkNeon: "#FE347E",
+        blueNeon: "#04d9ff",
+        loginForm: "#3A2B3F",
       },
       fontFamily: {
         vhs: "VHS",
+        roadRage: "Road-Rage",
       },
     },
   },

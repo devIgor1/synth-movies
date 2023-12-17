@@ -15,11 +15,17 @@ const Header = () => {
           />
         </Link>
         <div className="text-white text-2xl md:text-4xl">
-          <Link href="/sign-in" className="hover:text-pinkNeon animate-pulse">
+          <Link
+            href="/sign-in"
+            className="hover:text-pinkNeon hover:animate-pulse hover:bg-white"
+          >
             Login
           </Link>
           <span className="px-2 animate-pulse">|</span>
-          <Link href="/sign-out" className="hover:text-pinkNeon animate-pulse">
+          <Link
+            href="/sign-out"
+            className="hover:text-pinkNeon hover:animate-pulse hover:bg-white"
+          >
             Register
           </Link>
         </div>
