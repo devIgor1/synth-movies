@@ -23,7 +23,7 @@ const Register = () => {
               Register <br /> <span>Page</span>
             </h1>
             <Image
-              className="relative top-1 left-40"
+              className="relative -top-1 left-40"
               src="/assets/images/registerImage.png"
               alt="palm"
               width={98}
