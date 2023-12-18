@@ -46,7 +46,7 @@ const Register = () => {
     <div className="relative w-full min-h-screen bg-register-background bg-center bg-no-repeat flex-center font-vhs">
       <Link
         href="/"
-        className="absolute top-5 left-6 px-[10px] hover:animate-pulse text-center text-xl text-white hover:bg-white hover:text-black"
+        className="absolute top-5 left-6 px-[10px] hover:animate-pulse text-center text-xl text-white hover:bg-white hover:text-pink-500"
       >
         <Image
           src="/assets/images/rewind-arrow.png"
