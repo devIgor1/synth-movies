@@ -2,6 +2,7 @@
 
 import { Input } from "@/app/components/shared/Input"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { signIn } from "next-auth/react"
 import Image from "next/image"
 import Link from "next/link"
 import { useForm } from "react-hook-form"
@@ -23,8 +24,11 @@ const Login = () => {
     resolver: zodResolver(schema),
   })
 
-  function handleLoginUser(data: FormData) {
-    console.log(data)
+  async function handleLoginUser(data: FormData) {
+    const res = await signIn<"credentials">("credentials", {
+      ...data,
+      redirect: false,
+    })
   }
 
   return (

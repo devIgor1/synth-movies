@@ -24,8 +24,22 @@ const Register = () => {
     resolver: zodResolver(schema),
   })
 
-  function handleRegisterUser(data: FormData) {
-    console.log(data)
+  async function handleRegisterUser(data: FormData) {
+    const request = await fetch("/api/users", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+
+    const response = await request.json()
+
+    console.log("USER REGISTERED", response)
+
+    if (!request.ok) {
+      console.log("error")
+    }
   }
 
   return (
