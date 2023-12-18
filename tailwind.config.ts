@@ -14,6 +14,7 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "background-image": "url('/assets/images/background.jpg')",
         "login-background": "url('/assets/images/login.jpg')",
+        "register-background": "url('/assets/images/register.jpg')",
       },
       colors: {
         header: "#3E005B",
