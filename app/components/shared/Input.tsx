@@ -22,7 +22,7 @@ export function Input({
   return (
     <>
       <input
-        className="outline-none bg-transparent text-white caret-vhs"
+        className="outline-none bg-transparent text-white caret-vhs w-full max-w-[600px]"
         placeholder={placeholder}
         type={type}
         {...register(name, rules)}

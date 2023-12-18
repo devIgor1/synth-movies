@@ -52,7 +52,7 @@ const Register = () => {
               height={85}
             />
           </div>
-          <h2 className="text-white text-xl border-2 border-white p-2 mb-4 rounded-lg">
+          <h2 className="text-white text-xl border-2 border-white p-2 mb-4 rounded-lg flex-center">
             Username:{" "}
             <Input
               type="text"
@@ -61,7 +61,7 @@ const Register = () => {
               error={errors.username?.message}
             />
           </h2>
-          <h2 className="text-white text-xl border-2 border-white p-2 mb-4 rounded-lg">
+          <h2 className="text-white text-xl border-2 border-white p-2 mb-4 rounded-lg flex-center">
             Email:{" "}
             <Input
               type="email"
@@ -70,7 +70,7 @@ const Register = () => {
               error={errors.email?.message}
             />
           </h2>
-          <h2 className="text-white text-xl border-2 border-white p-2 mb-4 rounded-lg">
+          <h2 className="text-white text-xl border-2 border-white p-2 mb-4 rounded-lg flex-center">
             Password:{" "}
             <Input
               type="text"
