@@ -23,7 +23,7 @@ const Header = () => {
           </Link>
           <span className="px-2 animate-pulse">|</span>
           <Link
-            href="/sign-out"
+            href="/sign-up"
             className="hover:text-pinkNeon hover:animate-pulse hover:bg-white"
           >
             Register

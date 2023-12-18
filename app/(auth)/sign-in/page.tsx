@@ -51,7 +51,7 @@ const Login = () => {
             <h1 className="max-sm:text-center">
               Don't have an account? Don't waste more time and{" "}
               <Link
-                href="/register"
+                href="/sign-up"
                 className="text-blueNeon animate-pulse hover:bg-white p-1"
               >
                 register
