@@ -5,16 +5,20 @@ const Header = () => {
   return (
     <div className="w-full font-vhs">
       <nav className="md:mx-14 p-5 flex-between">
-        <Link href="/">
+        <Link
+          href="/"
+          className="flex-center font-roadRage text-logoNeon hover:animate-pulse"
+        >
+          <h1 className=" md:text-5xl hidden lg:block">Synth Movies</h1>
           <Image
             src="/assets/images/homeLogo.png"
             alt="logo"
             width={120}
             height={90}
-            className="animate-pulse"
+            className=""
           />
         </Link>
-        <div className="text-white text-2xl md:text-4xl">
+        <div className="text-white text-2xl md:text-3xl">
           <Link
             href="/sign-in"
             className="hover:text-pinkNeon hover:animate-pulse hover:bg-white"
