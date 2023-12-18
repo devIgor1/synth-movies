@@ -1,7 +1,29 @@
+"use client"
+
+import { Input } from "@/app/components/shared/Input"
+import { zodResolver } from "@hookform/resolvers/zod"
 import Image from "next/image"
 import Link from "next/link"
+import { useForm } from "react-hook-form"
+import { z } from "zod"
+
+const schema = z.object({
+  username: z.string().min(1, { message: "Username is required" }),
+  email: z.string().min(1, { message: "Email is required" }),
+  password: z.string().min(6, { message: "Password is required" }),
+})
+
+type FormData = z.infer<typeof schema>
 
 const Register = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>({
+    resolver: zodResolver(schema),
+  })
+
   return (
     <div className="relative w-full min-h-screen bg-register-background bg-center bg-no-repeat flex-center font-vhs">
       <Link
@@ -32,23 +54,29 @@ const Register = () => {
           </div>
           <h2 className="text-white text-xl border-2 border-white p-2 mb-4 rounded-lg">
             Username:{" "}
-            <input
-              className="outline-none bg-transparent text-white caret-vhs"
+            <Input
               type="text"
+              name="username"
+              register={register}
+              error={errors.username?.message}
             />
           </h2>
           <h2 className="text-white text-xl border-2 border-white p-2 mb-4 rounded-lg">
             Email:{" "}
-            <input
-              className="outline-none bg-transparent text-white caret-vhs"
+            <Input
               type="email"
+              name="email"
+              register={register}
+              error={errors.email?.message}
             />
           </h2>
           <h2 className="text-white text-xl border-2 border-white p-2 mb-4 rounded-lg">
             Password:{" "}
-            <input
-              className="outline-none bg-transparent text-white caret-vhs"
-              type="password"
+            <Input
+              type="text"
+              name="password"
+              register={register}
+              error={errors.password?.message}
             />
           </h2>
           <button className="border border-whiter rounded-lg bg-blueNeon text-white font-bold text-center w-full p-2 hover:bg-blue-300 duration-300">
