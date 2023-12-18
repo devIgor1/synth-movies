@@ -20,10 +20,10 @@ const Login = () => {
         <form>
           <div className="flex-center mb-8 animate-pulse">
             <h1 className="absolute text-5xl font-roadRage text-blueNeon items-center mx-auto">
-              Login Page
+              Login <br /> Page
             </h1>
             <Image
-              className="relative -top-2 right-44"
+              className="relative -top-2 right-32"
               src="/assets/images/palmtree.png"
               alt="palm"
               width={98}

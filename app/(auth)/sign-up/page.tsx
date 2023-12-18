@@ -17,7 +17,7 @@ const Register = () => {
         HOME
       </Link>
       <div className=" bg-loginForm flex-center p-10 border-2 border-white rounded-lg w-full max-w-[761px]">
-        <form className="">
+        <form className="w-full">
           <div className="flex-center mb-8 animate-pulse">
             <h1 className="absolute text-5xl font-roadRage text-pinkNeon items-center text-center mx-auto">
               Register <br /> <span>Page</span>
@@ -48,7 +48,7 @@ const Register = () => {
             Sign Up
           </button>
           <div className="mt-4 text-white text-xl">
-            <h1 className="max-sm:text-center">
+            <h1 className="text-center">
               Already have an account?
               <Link
                 href="/sign-in"
