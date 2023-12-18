@@ -31,6 +31,13 @@ const Register = () => {
             />
           </div>
           <h2 className="text-white text-xl border-2 border-white p-2 mb-4 rounded-lg">
+            Username:{" "}
+            <input
+              className="outline-none bg-transparent text-white caret-vhs"
+              type="text"
+            />
+          </h2>
+          <h2 className="text-white text-xl border-2 border-white p-2 mb-4 rounded-lg">
             Email:{" "}
             <input
               className="outline-none bg-transparent text-white caret-vhs"
