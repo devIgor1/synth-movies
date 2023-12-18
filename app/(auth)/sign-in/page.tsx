@@ -47,12 +47,12 @@ const Login = () => {
       </Link>
       <div className=" bg-loginForm flex-center p-10 border-2 border-white rounded-lg">
         <form onSubmit={handleSubmit(handleLoginUser)}>
-          <div className="flex-center mb-8 animate-pulse">
+          <div className="flex-center mb-8">
             <h1 className="absolute text-5xl font-roadRage text-blueNeon items-center mx-auto ">
               Login <br /> Page
             </h1>
             <Image
-              className="relative -top-2 right-32"
+              className="relative -top-2 right-32 animate-pulse"
               src="/assets/images/palmtree.png"
               alt="palm"
               width={98}
@@ -77,7 +77,7 @@ const Login = () => {
               error={errors.password?.message}
             />
           </h2>
-          <button className="border border-whiter rounded-lg bg-pinkNeon text-white text-center w-full p-2 hover:bg-pink-500 duration-300">
+          <button className="border border-whiter rounded-lg bg-blueNeon text-white text-center w-full p-2 hover:bg-blue-300 duration-300">
             Login
           </button>
           <div className="mt-4 text-white text-xl">
@@ -85,7 +85,7 @@ const Login = () => {
               Don't have an account? Don't waste more time and{" "}
               <Link
                 href="/sign-up"
-                className="text-blueNeon animate-pulse hover:bg-white p-1"
+                className="text-pinkNeon animate-pulse hover:bg-white p-1"
               >
                 register
               </Link>

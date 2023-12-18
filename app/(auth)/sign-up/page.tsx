@@ -97,7 +97,7 @@ const Register = () => {
               error={errors.password?.message}
             />
           </h2>
-          <button className="border border-whiter rounded-lg bg-blueNeon text-white font-bold text-center w-full p-2 hover:bg-blue-300 duration-300">
+          <button className="border border-whiter rounded-lg bg-pinkNeon text-white font-bold text-center w-full p-2 hover:bg-pink-500 duration-300">
             Sign Up
           </button>
           <div className="mt-4 text-white text-xl">
@@ -105,7 +105,7 @@ const Register = () => {
               Already have an account?
               <Link
                 href="/sign-in"
-                className="text-pinkNeon animate-pulse hover:bg-white p-1 "
+                className="text-blueNeon animate-pulse hover:bg-white p-1 "
               >
                 Login
               </Link>
