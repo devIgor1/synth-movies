@@ -29,4 +29,5 @@
 .caret-vhs::selection {
   background: #ff00ff;
   caret-shape: bar;
+  color: #fff;
 }
