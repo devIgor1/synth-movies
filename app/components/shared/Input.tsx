@@ -22,13 +22,15 @@ export function Input({
   return (
     <>
       <input
-        className="outline-none bg-transparent text-white caret-vhs w-full max-w-[600px]"
+        className="outline-none bg-transparent text-pinkNeon caret-vhs w-full max-w-[600px] h-11"
         placeholder={placeholder}
         type={type}
         {...register(name, rules)}
         id={name}
       />
-      {error && <p className="text-red-500 my-1">{error}</p>}
+      {error && (
+        <p className="text-red-500 text-lg md:text-xl text-center">{error}</p>
+      )}
     </>
   )
 }

@@ -8,9 +8,9 @@ import { useForm } from "react-hook-form"
 import { z } from "zod"
 
 const schema = z.object({
-  username: z.string().min(1, { message: "Username is required" }),
-  email: z.string().min(1, { message: "Email is required" }),
-  password: z.string().min(6, { message: "Password is required" }),
+  username: z.string().min(1, { message: "Username is required!" }),
+  email: z.string().min(1, { message: "Email is required!" }),
+  password: z.string().min(6, { message: "Password is required!" }),
 })
 
 type FormData = z.infer<typeof schema>
@@ -23,6 +23,10 @@ const Register = () => {
   } = useForm<FormData>({
     resolver: zodResolver(schema),
   })
+
+  function handleRegisterUser(data: FormData) {
+    console.log(data)
+  }
 
   return (
     <div className="relative w-full min-h-screen bg-register-background bg-center bg-no-repeat flex-center font-vhs">
@@ -39,7 +43,7 @@ const Register = () => {
         HOME
       </Link>
       <div className=" bg-loginForm flex-center p-10 border-2 border-white rounded-lg w-full max-w-[761px]">
-        <form className="w-full">
+        <form className="w-full" onSubmit={handleSubmit(handleRegisterUser)}>
           <div className="flex-center mb-8 animate-pulse">
             <h1 className="absolute text-5xl font-roadRage text-pinkNeon items-center text-center mx-auto">
               Register <br /> <span>Page</span>
@@ -73,7 +77,7 @@ const Register = () => {
           <h2 className="text-white text-xl border-2 border-white p-2 mb-4 rounded-lg flex-center">
             Password:{" "}
             <Input
-              type="text"
+              type="password"
               name="password"
               register={register}
               error={errors.password?.message}
