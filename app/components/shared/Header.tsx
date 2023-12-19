@@ -41,16 +41,11 @@ const Header = () => {
         )}
 
         {status === "authenticated" && (
-          <div className="text-white text-2xl md:text-3xl">
+          <div className="text-white text-2xl md:text-3xl flex-center gap-4">
             <h1 className="hover:text-pinkNeon hover:animate-pulse hover:bg-white">
               {data.user?.name}
             </h1>
-            <button
-              onClick={() => signOut()}
-              className="hover:text-pinkNeon hover:animate-pulse hover:bg-white"
-            >
-              Logout
-            </button>
+            <h1>botao</h1>
           </div>
         )}
       </nav>
