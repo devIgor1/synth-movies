@@ -2,7 +2,7 @@
 import { useSession } from "next-auth/react"
 import Image from "next/image"
 import Link from "next/link"
-import { useContext, useRef } from "react"
+import { useContext } from "react"
 import { BiSolidDownArrow } from "react-icons/bi"
 import { ModalContext } from "../contexts/ModalContext"
 
