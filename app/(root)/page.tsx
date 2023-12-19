@@ -1,8 +1,6 @@
 "use client"
 
-import { useContext, useRef } from "react"
 import Header from "../components/shared/Header"
-import { ModalContext } from "../components/contexts/ModalContext"
 
 export default async function Home() {
   return (
