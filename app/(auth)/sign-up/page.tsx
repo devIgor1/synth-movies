@@ -9,7 +9,7 @@ import { z } from "zod"
 import { useRouter } from "next/navigation"
 
 const schema = z.object({
-  username: z.string().min(1, { message: "Name is required!" }),
+  name: z.string().min(1, { message: "Username is required!" }),
   email: z.string().min(1, { message: "Email is required!" }),
   password: z.string().min(6, { message: "Password is required!" }),
 })
@@ -24,10 +24,9 @@ const Register = () => {
   } = useForm<FormData>({
     resolver: zodResolver(schema),
   })
+  const router = useRouter()
 
   async function handleRegisterUser(data: FormData) {
-    const router = useRouter()
-
     const request = await fetch("/api/users", {
       method: "POST",
       headers: {
@@ -77,9 +76,9 @@ const Register = () => {
             Username:{" "}
             <Input
               type="text"
-              name="username"
+              name="name"
               register={register}
-              error={errors.username?.message}
+              error={errors.name?.message}
             />
           </label>
           <label className="text-white text-xl border-2 border-white p-2 mb-4 rounded-lg flex-center">

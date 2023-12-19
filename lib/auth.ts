@@ -1,24 +1,40 @@
-import CredentialProvider from "next-auth/providers/credentials"
 import { NextAuthOptions } from "next-auth"
 import { PrismaAdapter } from "@auth/prisma-adapter"
-import prisma from "./db"
+import CredentialProvider from "next-auth/providers/credentials"
+
+import prisma from "@/lib/db"
+
+import bcrypt from "bcrypt"
 
 export const authOptions: NextAuthOptions = {
-  adapter: PrismaAdapter(prisma),
+  adapter: PrismaAdapter(prisma as any),
   providers: [
     CredentialProvider({
       name: "credentials",
       credentials: {
-        email: { label: "Email", type: "email" },
+        email: { label: "Email", type: "text" },
         password: { label: "Password", type: "password" },
-        username: { label: "Username", type: "text" },
+        name: { label: "Username", type: "text" },
       },
       async authorize(credentials, req): Promise<any> {
-        const user = {
-          username: "80sdev",
-          email: "teste@teste.com",
-          password: "123123",
+        if (!credentials?.email || !credentials?.password)
+          throw new Error("Email or password must be provided")
+
+        const user = await prisma.user.findUnique({
+          where: {
+            email: credentials?.email,
+          },
+        })
+
+        if (!user || !user.hashedPassword) {
+          throw new Error("User not found!")
         }
+
+        const matchPassword = await bcrypt.compare(
+          credentials.password,
+          user.hashedPassword
+        )
+        if (!matchPassword) throw new Error("Invalid Password")
 
         return user
       },
@@ -27,8 +43,9 @@ export const authOptions: NextAuthOptions = {
   session: {
     strategy: "jwt",
   },
+  secret: process.env.SECRET,
+  debug: process.env.NODE_ENV === "development",
   pages: {
     signIn: "/sign-in",
   },
-  secret: process.env.SECRET,
 }

@@ -7,6 +7,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
+import { useRouter } from "next/navigation"
 
 const schema = z.object({
   email: z.string().min(1, { message: "Email is required!" }),
@@ -23,12 +24,19 @@ const Login = () => {
   } = useForm<FormData>({
     resolver: zodResolver(schema),
   })
+  const router = useRouter()
+
+  let timeout = 1000
 
   async function handleLoginUser(data: FormData) {
-    const res = await signIn<"credentials">("credentials", {
+    const res = await signIn("credentials", {
       ...data,
       redirect: false,
     })
+
+    setTimeout(() => {
+      router.push("/")
+    }, timeout)
   }
 
   return (
@@ -77,7 +85,10 @@ const Login = () => {
               error={errors.password?.message}
             />
           </label>
-          <button className="border border-whiter rounded-lg bg-blueNeon text-white text-center w-full p-2 hover:bg-blue-300 duration-300">
+          <button
+            type="submit"
+            className="border border-whiter rounded-lg bg-blueNeon text-white text-center w-full p-2 hover:bg-blue-300 duration-300"
+          >
             Login
           </button>
           <div className="mt-4 text-white text-xl">
