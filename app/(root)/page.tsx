@@ -1,4 +1,5 @@
 import Header from "../components/shared/Header"
+import { Modal } from "../components/shared/Modal"
 
 export default async function Home() {
   return (
