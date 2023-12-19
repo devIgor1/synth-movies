@@ -11,6 +11,10 @@ const Header = () => {
 
   const { handleModalVisible } = useContext(ModalContext)
 
+  function handleOpenModal() {
+    handleModalVisible()
+  }
+
   return (
     <div className="w-full font-vhs">
       <nav className="md:mx-14 p-5 flex-between">
@@ -47,7 +51,7 @@ const Header = () => {
 
         {status === "authenticated" && (
           <div className="text-white text-2xl md:text-3xl">
-            <button className="flex-center gap-4">
+            <button className="flex-center gap-4" onClick={handleOpenModal}>
               <h1 className="animate-pulse">{data.user?.name}</h1>
               <span className="animate-pulse active:text-logoNeon ">
                 <BiSolidDownArrow />
