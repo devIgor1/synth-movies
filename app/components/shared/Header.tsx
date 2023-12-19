@@ -53,9 +53,12 @@ const Header = () => {
 
         {status === "authenticated" && (
           <div className="text-white text-2xl md:text-3xl">
-            <button className="flex-center gap-4" onClick={handleOpenModal}>
+            <button
+              className="flex-center gap-4 active:text-logoNeon"
+              onClick={handleOpenModal}
+            >
               <h1 className="animate-pulse">{data.user?.name}</h1>
-              <span className="animate-pulse active:text-logoNeon ">
+              <span className="animate-pulse ">
                 <BiSolidDownArrow />
               </span>
             </button>
