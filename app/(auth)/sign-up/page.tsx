@@ -6,6 +6,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
+import { useRouter } from "next/navigation"
 
 const schema = z.object({
   username: z.string().min(1, { message: "Name is required!" }),
@@ -25,6 +26,8 @@ const Register = () => {
   })
 
   async function handleRegisterUser(data: FormData) {
+    const router = useRouter()
+
     const request = await fetch("/api/users", {
       method: "POST",
       headers: {
@@ -35,7 +38,7 @@ const Register = () => {
 
     const response = await request.json()
 
-    console.log("USER REGISTERED", response)
+    router.push("/sign-in")
 
     if (!request.ok) {
       console.log("error")
