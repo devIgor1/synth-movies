@@ -1,6 +1,7 @@
 "use client"
 
 import { createContext, ReactNode, useState } from "react"
+import { Modal } from "../shared/Modal"
 
 interface ModalContextData {
   visible: boolean
@@ -18,6 +19,7 @@ export const ModalProvider = ({ children }: { children: ReactNode }) => {
 
   return (
     <ModalContext.Provider value={{ visible, handleModalVisible }}>
+      {visible && <Modal />}
       {children}
     </ModalContext.Provider>
   )

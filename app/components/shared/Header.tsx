@@ -1,5 +1,5 @@
 "use client"
-import { signOut, useSession } from "next-auth/react"
+import { useSession } from "next-auth/react"
 import Image from "next/image"
 import Link from "next/link"
 import { useContext, useRef } from "react"
@@ -12,7 +12,9 @@ const Header = () => {
   const { handleModalVisible } = useContext(ModalContext)
 
   function handleOpenModal() {
-    handleModalVisible()
+    try {
+      handleModalVisible()
+    } catch (error) {}
   }
 
   return (
