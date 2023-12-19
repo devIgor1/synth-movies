@@ -22,6 +22,7 @@ const config: Config = {
         logoNeon: "#FC6BA4",
         blueNeon: "#04d9ff",
         loginForm: "#3A2B3F",
+        darkPurple: "#110215",
       },
       fontFamily: {
         vhs: "VHS",
