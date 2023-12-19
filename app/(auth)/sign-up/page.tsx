@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form"
 import { z } from "zod"
 
 const schema = z.object({
-  username: z.string().min(1, { message: "Username is required!" }),
+  username: z.string().min(1, { message: "Name is required!" }),
   email: z.string().min(1, { message: "Email is required!" }),
   password: z.string().min(6, { message: "Password is required!" }),
 })
@@ -70,7 +70,7 @@ const Register = () => {
               height={85}
             />
           </div>
-          <h2 className="text-white text-xl border-2 border-white p-2 mb-4 rounded-lg flex-center">
+          <label className="text-white text-xl border-2 border-white p-2 mb-4 rounded-lg flex-center">
             Username:{" "}
             <Input
               type="text"
@@ -78,8 +78,8 @@ const Register = () => {
               register={register}
               error={errors.username?.message}
             />
-          </h2>
-          <h2 className="text-white text-xl border-2 border-white p-2 mb-4 rounded-lg flex-center">
+          </label>
+          <label className="text-white text-xl border-2 border-white p-2 mb-4 rounded-lg flex-center">
             Email:{" "}
             <Input
               type="email"
@@ -87,8 +87,8 @@ const Register = () => {
               register={register}
               error={errors.email?.message}
             />
-          </h2>
-          <h2 className="text-white text-xl border-2 border-white p-2 mb-4 rounded-lg flex-center">
+          </label>
+          <label className="text-white text-xl border-2 border-white p-2 mb-4 rounded-lg flex-center">
             Password:{" "}
             <Input
               type="password"
@@ -96,8 +96,11 @@ const Register = () => {
               register={register}
               error={errors.password?.message}
             />
-          </h2>
-          <button className="border border-whiter rounded-lg bg-pinkNeon text-white font-bold text-center w-full p-2 hover:bg-pink-500 duration-300">
+          </label>
+          <button
+            type="submit"
+            className="border border-whiter rounded-lg bg-pinkNeon text-white font-bold text-center w-full p-2 hover:bg-pink-500 duration-300"
+          >
             Sign Up
           </button>
           <div className="mt-4 text-white text-xl">

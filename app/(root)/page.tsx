@@ -8,7 +8,7 @@ export default async function Home() {
     <main className="w-full h-full bg-background-image bg-no-repeat bg-center">
       <Header />
       <div className="max-w-5xl flex-center">
-        <section className="text-white"></section>
+        <section className="text-white">{JSON.stringify(user)}</section>
       </div>
     </main>
   )

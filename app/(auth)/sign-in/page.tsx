@@ -59,7 +59,7 @@ const Login = () => {
               height={65}
             />
           </div>
-          <h2 className="text-white text-xl border-2 border-white p-2 mb-4 rounded-lg flex-center">
+          <label className="text-white text-xl border-2 border-white p-2 mb-4 rounded-lg flex-center">
             Email:{" "}
             <Input
               type="text"
@@ -67,8 +67,8 @@ const Login = () => {
               register={register}
               error={errors.email?.message}
             />
-          </h2>
-          <h2 className="text-white text-xl border-2 border-white p-2 mb-4 rounded-lg flex-center">
+          </label>
+          <label className="text-white text-xl border-2 border-white p-2 mb-4 rounded-lg flex-center">
             Password:{" "}
             <Input
               type="password"
@@ -76,7 +76,7 @@ const Login = () => {
               register={register}
               error={errors.password?.message}
             />
-          </h2>
+          </label>
           <button className="border border-whiter rounded-lg bg-blueNeon text-white text-center w-full p-2 hover:bg-blue-300 duration-300">
             Login
           </button>

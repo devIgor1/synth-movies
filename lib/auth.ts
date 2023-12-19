@@ -9,9 +9,9 @@ export const authOptions: NextAuthOptions = {
     CredentialProvider({
       name: "credentials",
       credentials: {
-        username: { label: "Username", type: "text" },
         email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
+        username: { label: "Username", type: "text" },
       },
       async authorize(credentials, req): Promise<any> {
         const user = {
@@ -26,6 +26,9 @@ export const authOptions: NextAuthOptions = {
   ],
   session: {
     strategy: "jwt",
+  },
+  pages: {
+    signIn: "/sign-in",
   },
   secret: process.env.SECRET,
 }
