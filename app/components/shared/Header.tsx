@@ -9,12 +9,10 @@ import { ModalContext } from "../contexts/ModalContext"
 const Header = () => {
   const { status, data } = useSession()
 
-  const { handleModalVisible } = useContext(ModalContext)
+  const { handleModalVisible, visible } = useContext(ModalContext)
 
   function handleOpenModal() {
-    try {
-      handleModalVisible()
-    } catch (error) {}
+    handleModalVisible()
   }
 
   return (
@@ -53,15 +51,27 @@ const Header = () => {
 
         {status === "authenticated" && (
           <div className="text-white text-2xl md:text-3xl">
-            <button
-              className="flex-center gap-4 active:text-logoNeon"
-              onClick={handleOpenModal}
-            >
-              <h1 className="animate-pulse">{data.user?.name}</h1>
-              <span className="animate-pulse ">
-                <BiSolidDownArrow />
-              </span>
-            </button>
+            {!visible ? (
+              <button
+                className="flex-center gap-4 active:text-logoNeon"
+                onClick={handleOpenModal}
+              >
+                <span className="animate-pulse duration-300">
+                  <BiSolidDownArrow />
+                </span>
+                <h1 className="animate-pulse">{data.user?.name}</h1>
+              </button>
+            ) : (
+              <button
+                className="flex-center gap-4 active:text-logoNeon"
+                onClick={handleOpenModal}
+              >
+                <span className="animate-pulse rotate-90 duration-300">
+                  <BiSolidDownArrow />
+                </span>
+                <h1 className="animate-pulse">{data.user?.name}</h1>
+              </button>
+            )}
           </div>
         )}
       </nav>
