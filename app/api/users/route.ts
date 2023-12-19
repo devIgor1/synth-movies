@@ -6,7 +6,6 @@ export async function POST(request: NextRequest) {
   try {
     const data = await request.json()
     const { name, email, password } = data
-    console.log("ROUTE HANDLER", data)
 
     if (!name || !email || !password) {
       return NextResponse.json("Invalid name, email, or password.", {
