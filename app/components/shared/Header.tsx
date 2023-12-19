@@ -22,7 +22,7 @@ const Header = () => {
       <nav className="md:mx-14 p-5 flex-between">
         <Link
           href="/"
-          className="flex-center font-roadRage text-logoNeon hover:animate-pulse"
+          className="flex-center font-roadRage text-logoNeon animate-pulse"
         >
           <h1 className=" md:text-5xl hidden lg:block">Synth Movies</h1>
           <Image
