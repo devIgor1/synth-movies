@@ -2,9 +2,14 @@
 import { signOut, useSession } from "next-auth/react"
 import Image from "next/image"
 import Link from "next/link"
+import { useContext, useRef } from "react"
+import { BiSolidDownArrow } from "react-icons/bi"
+import { ModalContext } from "../contexts/ModalContext"
 
 const Header = () => {
   const { status, data } = useSession()
+
+  const { handleModalVisible } = useContext(ModalContext)
 
   return (
     <div className="w-full font-vhs">
@@ -41,11 +46,13 @@ const Header = () => {
         )}
 
         {status === "authenticated" && (
-          <div className="text-white text-2xl md:text-3xl flex-center gap-4">
-            <h1 className="hover:text-pinkNeon hover:animate-pulse hover:bg-white">
-              {data.user?.name}
-            </h1>
-            <h1>botao</h1>
+          <div className="text-white text-2xl md:text-3xl">
+            <button className="flex-center gap-4">
+              <h1 className="animate-pulse">{data.user?.name}</h1>
+              <span className="animate-pulse active:text-logoNeon ">
+                <BiSolidDownArrow />
+              </span>
+            </button>
           </div>
         )}
       </nav>
