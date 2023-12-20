@@ -42,7 +42,7 @@ const Login = () => {
   return (
     <div className="relative w-full min-h-screen bg-login-background bg-center bg-no-repeat flex-center font-vhs">
       <Link
-        href="/"
+        href="/home"
         className="absolute top-5 left-6 px-[10px] hover:animate-pulse text-center text-xl text-white hover:bg-white hover:text-pink-500"
       >
         <Image
