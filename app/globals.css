@@ -37,3 +37,11 @@
     black 2px -2px 1px, black 0px 2px 1px, black 0px -2px 1px, black 2px 0px 1px,
     black -2px 0px 1px;
 }
+
+.pinkNeon-text-shadow {
+  text-shadow: rgb(197, 52, 175) 2px 2px 1px, rgb(197, 52, 175) -2px 2px 1px,
+    rgb(197, 52, 175) -2px -2px 1px, rgb(197, 52, 175) 2px -2px 1px,
+    rgb(197, 52, 175) 0px 2px 1px, rgb(197, 52, 175) 0px -2px 1px,
+    rgb(197, 52, 175) 2px 0px 1px, rgb(197, 52, 175) -2px 0px 1px,
+    rgb(209, 4, 245) 0px 0px 10px;
+}
