@@ -9,9 +9,15 @@ import { z } from "zod"
 import { useRouter } from "next/navigation"
 
 const schema = z.object({
-  name: z.string().min(1, { message: "Username is required!" }),
+  name: z
+    .string()
+    .min(1, { message: "Username is required!" })
+    .max(10, { message: "Name should have a maximum of 10 characters." }),
   email: z.string().min(1, { message: "Email is required!" }),
-  password: z.string().min(6, { message: "Password is required!" }),
+  password: z
+    .string()
+    .min(1, { message: "Password is required!" })
+    .min(6, { message: "Password should have a minimum of 6 characters." }),
 })
 
 type FormData = z.infer<typeof schema>
