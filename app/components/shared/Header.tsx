@@ -3,10 +3,9 @@ import { signOut, useSession } from "next-auth/react"
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
-import { BiSolidDownArrow, BiSolidLeftArrow } from "react-icons/bi"
-import { MdDashboard } from "react-icons/md"
-import { RiLogoutCircleRLine } from "react-icons/ri"
+import { BiSolidDownArrow } from "react-icons/bi"
 import { Modal } from "./Modal"
+import { PiUser } from "react-icons/pi"
 
 const Header = () => {
   const { status, data } = useSession()
@@ -65,7 +64,9 @@ const Header = () => {
                 <span className="animate-pulse">
                   <BiSolidDownArrow />
                 </span>
-                <h1 className="animate-pulse">{data.user?.name}</h1>
+                <h1 className="animate-pulse flex-center gap-2">
+                  {data.user?.name} <PiUser size={28} />
+                </h1>
               </button>
             ) : (
               <button
@@ -76,7 +77,12 @@ const Header = () => {
                 <span className="animate-pulse rotate-90">
                   <BiSolidDownArrow />
                 </span>
-                <h1 className="animate-pulse">{data.user?.name}</h1>
+                <h1 className="animate-pulse flex-center gap-2">
+                  {data.user?.name}
+                  <span className="text-white">
+                    <PiUser size={28} />
+                  </span>
+                </h1>
               </button>
             )}
           </div>
