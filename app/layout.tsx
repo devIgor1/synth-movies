@@ -2,7 +2,6 @@ import type { Metadata } from "next"
 import { Poppins } from "next/font/google"
 import "./globals.css"
 import AuthProvider from "./components/providers/auth-provider"
-import { ModalProvider } from "./components/contexts/ModalContext"
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -26,9 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={poppins.className}>
-        <AuthProvider>
-          <ModalProvider>{children}</ModalProvider>
-        </AuthProvider>
+        <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
   )
