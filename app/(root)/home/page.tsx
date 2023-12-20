@@ -33,7 +33,7 @@ export default function Home() {
             <section className="w-full rounded-lg border-pinkNeon border-2 p-2 ">
               <Link href="/movie/:id">
                 <img
-                  className="w-full h-full max-h-[300px]"
+                  className="w-full h-full max-h-[300px] rounded-lg"
                   src="/assets/images/movieTheme.jpg"
                   alt="movie"
                 />
