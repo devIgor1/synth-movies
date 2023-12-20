@@ -15,6 +15,8 @@ const config: Config = {
         "background-image": "url('/assets/images/background.jpg')",
         "login-background": "url('/assets/images/login.jpg')",
         "register-background": "url('/assets/images/register.jpg')",
+        "vhs-gif":
+          "url('https://68.media.tumblr.com/595a5fa01fe53ca0e4ca8f37bacc849d/tumblr_nve67mJtue1tanofjo1_500.gif')",
       },
       colors: {
         header: "#3E005B",

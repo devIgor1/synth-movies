@@ -31,3 +31,9 @@
   caret-shape: bar;
   color: #fff;
 }
+
+.text-shadow {
+  text-shadow: black 2px 2px 1px, black -2px 2px 1px, black -2px -2px 1px,
+    black 2px -2px 1px, black 0px 2px 1px, black 0px -2px 1px, black 2px 0px 1px,
+    black -2px 0px 1px;
+}

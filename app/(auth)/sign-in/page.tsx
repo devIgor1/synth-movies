@@ -35,7 +35,7 @@ const Login = () => {
     })
 
     setTimeout(() => {
-      router.push("/")
+      router.push("/home")
     }, timeout)
   }
 
