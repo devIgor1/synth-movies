@@ -18,11 +18,12 @@ const config: Config = {
       },
       colors: {
         header: "#3E005B",
-        pinkNeon: "#FE347E",
+        pinkNeon: "#EB139A",
         logoNeon: "#FC6BA4",
         blueNeon: "#04d9ff",
         loginForm: "#3A2B3F",
         darkPurple: "#19051F",
+        darkBlue: "#14004E",
       },
       fontFamily: {
         vhs: "VHS",
