@@ -23,7 +23,7 @@ export function Modal() {
     <div className="absolute w-full min-h-screen" onClick={handleModalClick}>
       <div
         ref={modalRef}
-        className="absolute animate-pulse top-5 right-32 md:top-5 md:right-52 border border-white p-2 rounded-lg font-vhs max-w-[170px] h-32 flex-center flex-col text-white text-base md:text-xl"
+        className="animate-pulse top-5 right-32 md:top-5 md:right-52 border border-white p-2 rounded-lg font-vhs max-w-[170px] h-32 flex-center flex-col text-white text-base md:text-xl"
       >
         <Link
           href="/dashboard"
