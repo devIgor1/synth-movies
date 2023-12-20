@@ -10,7 +10,6 @@ import { PiUser } from "react-icons/pi"
 const Header = () => {
   const { status, data } = useSession()
   const [visible, setVisible] = useState<boolean>(false)
-  const [arrowEffect, setArrowEffect] = useState<boolean>(false)
 
   function handleOpenModal() {
     setVisible(!visible)
