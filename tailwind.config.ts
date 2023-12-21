@@ -17,6 +17,7 @@ const config: Config = {
         "register-background": "url('/assets/images/register.jpg')",
         "vhs-gif":
           "url('https://68.media.tumblr.com/595a5fa01fe53ca0e4ca8f37bacc849d/tumblr_nve67mJtue1tanofjo1_500.gif')",
+        "dashboard-theme": "url('/assets/images/dashboard-theme.png')",
       },
       colors: {
         header: "#3E005B",
