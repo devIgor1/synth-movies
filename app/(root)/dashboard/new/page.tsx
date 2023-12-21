@@ -9,6 +9,7 @@ import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { MdLocalMovies } from "react-icons/md"
 import { z } from "zod"
+import { IoIosArrowRoundBack } from "react-icons/io"
 
 const schema = z.object({
   title: z.string().min(1, { message: "Title is required!" }),
@@ -152,12 +153,21 @@ const New = () => {
             </div>
             <div className="flex items-center border-b-2 border-black"></div>
             <div className="text-black text-2xl w-full flex-center">
-              <button className="border-x-2 border-black p-4 hover:bg-zinc-200 duration-300">
+              <button className="border-x-2 border-black p-4 hover:bg-zinc-400 duration-300">
                 Be Famous!
               </button>
               <div className="bg-black text-white"></div>
             </div>
           </form>
+        </div>
+        <div className="mt-32">
+          <Link
+            href="/dashboard"
+            className="text-3xl text-black hover:underline  flex-center flex-col"
+          >
+            <h1>Back to Dashboard</h1>
+            <IoIosArrowRoundBack size={70} />
+          </Link>
         </div>
       </div>
     </div>
