@@ -74,6 +74,7 @@ const Login = () => {
               name="email"
               register={register}
               error={errors.email?.message}
+              className="outline-none bg-transparent text-pinkNeon caret-vhs w-full max-w-[600px] h-11"
             />
           </label>
           <label className="text-white text-xl border-2 border-white p-2 mb-4 rounded-lg flex-center">
@@ -83,6 +84,7 @@ const Login = () => {
               name="password"
               register={register}
               error={errors.password?.message}
+              className="outline-none bg-transparent text-pinkNeon caret-vhs w-full max-w-[600px] h-11"
             />
           </label>
           <button

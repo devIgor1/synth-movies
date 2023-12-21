@@ -18,6 +18,7 @@ const config: Config = {
         "vhs-gif":
           "url('https://68.media.tumblr.com/595a5fa01fe53ca0e4ca8f37bacc849d/tumblr_nve67mJtue1tanofjo1_500.gif')",
         "dashboard-theme": "url('/assets/images/dashboard-theme.png')",
+        "register-movie": "url('/assets/images/newspaper.jpg')",
       },
       colors: {
         header: "#3E005B",
@@ -27,6 +28,7 @@ const config: Config = {
         loginForm: "#3A2B3F",
         darkPurple: "#19051F",
         darkBlue: "#14004E",
+        newspaper: "#E8E8E8",
       },
       fontFamily: {
         vhs: "VHS",

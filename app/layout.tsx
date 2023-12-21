@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import "./globals.css"
 import AuthProvider from "./components/providers/auth-provider"
+import { EdgeStoreProvider } from "@/lib/edgestore"
 
 export const metadata: Metadata = {
   title: "Synth Movies",
@@ -18,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <AuthProvider>{children}</AuthProvider>
+        <AuthProvider>
+          <EdgeStoreProvider>{children}</EdgeStoreProvider>
+        </AuthProvider>
       </body>
     </html>
   )
