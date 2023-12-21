@@ -2,7 +2,6 @@
 
 import { Input } from "@/app/components/shared/Input"
 import { SingleImageDropzone } from "@/app/components/shared/SingleImageDropzone"
-import { useEdgeStore } from "@/lib/edgestore"
 import { zodResolver } from "@hookform/resolvers/zod"
 import Link from "next/link"
 import { useState } from "react"
@@ -10,6 +9,7 @@ import { useForm } from "react-hook-form"
 import { MdLocalMovies } from "react-icons/md"
 import { z } from "zod"
 import { IoIosArrowRoundBack } from "react-icons/io"
+import { useEdgeStore } from "@/lib/edgestore"
 
 const schema = z.object({
   title: z.string().min(1, { message: "Title is required!" }),
@@ -29,10 +29,7 @@ const schema = z.object({
 
 const New = () => {
   const [file, setFile] = useState<File>()
-  const [urls, setUrls] = useState<{
-    url: string
-    thumbnailUrl: string | null
-  }>()
+
   const { edgestore } = useEdgeStore()
 
   type FormData = z.infer<typeof schema>
@@ -46,17 +43,9 @@ const New = () => {
     mode: "onChange",
   })
 
-  async function handleFile(data: FormData) {
-    if (file) {
-      const res = await edgestore.movieImage.upload({ file })
-
-      setUrls({
-        url: res.url,
-        thumbnailUrl: res.thumbnailUrl,
-      })
-    }
-
+  async function handleRegisterMovie(data: FormData) {
     console.log(data)
+    console.log(file)
   }
 
   return (
@@ -68,22 +57,22 @@ const New = () => {
             New Movie <MdLocalMovies size={30} />
           </h1>
 
-          <div className="border-y-2 border-black flex flex-col flex-center">
-            <div className="border-x-2 border-black">
-              <label className="p-2 text-center w-full text-2xl font-bold">
-                Movie Cover
-              </label>
-              <SingleImageDropzone
-                width={200}
-                height={200}
-                value={file}
-                onChange={(file) => {
-                  setFile(file)
-                }}
-              />
+          <form onSubmit={handleSubmit(handleRegisterMovie)}>
+            <div className="border-y-2 border-black flex flex-col flex-center">
+              <div className="border-x-2 border-black">
+                <label className="p-2 text-center w-full text-2xl font-bold">
+                  Movie Cover
+                </label>
+                <SingleImageDropzone
+                  width={200}
+                  height={200}
+                  value={file}
+                  onChange={(file) => {
+                    setFile(file)
+                  }}
+                />
+              </div>
             </div>
-          </div>
-          <form>
             <div className="flex items-center">
               <label className="p-2 h-13 max-h-13 text-2xl font-bold border-r-2 border-black">
                 Title
@@ -153,7 +142,10 @@ const New = () => {
             </div>
             <div className="flex items-center border-b-2 border-black"></div>
             <div className="text-black text-2xl w-full flex-center">
-              <button className="border-x-2 border-black p-4 hover:bg-zinc-400 duration-300">
+              <button
+                className="border-x-2 border-black p-4 hover:bg-zinc-400 duration-300"
+                type="submit"
+              >
                 Be Famous!
               </button>
               <div className="bg-black text-white"></div>

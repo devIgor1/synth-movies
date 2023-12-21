@@ -23,6 +23,7 @@ type InputProps = {
   onChange?: (file?: File) => void | Promise<void>
   disabled?: boolean
   dropzoneOptions?: Omit<DropzoneOptions, "disabled">
+  onClick?: (file?: File) => void | Promise<void>
 }
 
 const ERROR_MESSAGES = {
