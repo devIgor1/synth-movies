@@ -8,7 +8,9 @@ const Dashboard = () => {
   return (
     <div className="w-full min-h-screen bg-background-image bg-cover font-vhs">
       <div className="wrapper flex-center flex-col">
-        <h1 className="text-white text-4xl md:text-5xl mb-2">Dashboard</h1>
+        <h1 className="text-white text-4xl md:text-5xl mb-7 md:mb-10">
+          Dashboard
+        </h1>
         <div>
           <Image
             src="/assets/images/dashboard-theme.png"
@@ -47,7 +49,7 @@ const Dashboard = () => {
             </section>
           </section>
         </div>
-        <div className="mt-64">
+        <div className="mt-52 md:mt-20">
           <Link
             href="/home"
             className="text-white text-3xl md:text-5xl flex-center gap-5 flex-col hover:text-pinkNeon"
