@@ -27,7 +27,7 @@ const Dashboard = () => {
                 className="bg-pinkNeon p-2 flex-center gap-4 rounded-lg shadow-2xl text-shadow border-2 border-black hover:scale-105 duration-300"
               >
                 <h1 className="text-white text-xl md:text-2xl lg:text-3xl">
-                  My Favorites{" "}
+                  My Movies{" "}
                 </h1>
                 <span className="text-yellow-400 shadow-black">
                   <GiStarsStack size={30} />
