@@ -1,9 +1,9 @@
 import { getServerSession } from "next-auth"
-import NewMovieForm from "./components/form"
+import NewMovieForm from "../components/form"
 import { authOptions } from "@/lib/auth"
 import { redirect } from "next/navigation"
 
-const New = async () => {
+const Movie = async () => {
   const session = await getServerSession(authOptions)
 
   if (!session) {
@@ -18,4 +18,4 @@ const New = async () => {
   )
 }
 
-export default New
+export default Movie

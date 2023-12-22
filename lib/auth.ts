@@ -7,12 +7,12 @@ import prisma from "@/lib/db"
 import bcrypt from "bcrypt"
 
 export const authOptions: NextAuthOptions = {
-  adapter: PrismaAdapter(prisma as any),
+  adapter: PrismaAdapter(prisma),
   providers: [
     CredentialProvider({
       name: "credentials",
       credentials: {
-        email: { label: "Email", type: "text" },
+        email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
         name: { label: "Username", type: "text" },
       },
@@ -25,7 +25,6 @@ export const authOptions: NextAuthOptions = {
             email: credentials?.email,
           },
         })
-        console.log(user)
 
         if (!user || !user.hashedPassword) {
           throw new Error("User not found!")

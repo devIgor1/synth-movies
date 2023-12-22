@@ -26,17 +26,13 @@ const Login = () => {
   })
   const router = useRouter()
 
-  let timeout = 1000
-
   async function handleLoginUser(data: FormData) {
-    const res = await signIn("credentials", {
+    await signIn("credentials", {
       ...data,
       redirect: false,
     })
 
-    setTimeout(() => {
-      router.push("/home")
-    }, timeout)
+    router.push("/home")
   }
 
   return (

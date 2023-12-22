@@ -16,7 +16,7 @@ model Movie {
   gender            String
   release_date      DateTime @default(now())
   duration          String
-  image             String
+  cover             String
 
   userId            String   @db.ObjectId
   User              User?    @relation(fields: [userId], references: [id])
