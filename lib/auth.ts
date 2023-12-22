@@ -25,6 +25,7 @@ export const authOptions: NextAuthOptions = {
             email: credentials?.email,
           },
         })
+        console.log(user)
 
         if (!user || !user.hashedPassword) {
           throw new Error("User not found!")
@@ -43,8 +44,26 @@ export const authOptions: NextAuthOptions = {
   session: {
     strategy: "jwt",
   },
-  secret: process.env.SECRET,
+  secret: process.env.NEXTAUTH_SECRET,
   pages: {
     signIn: "/sign-in",
+  },
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.name = user.name
+        token.email = user.email
+        token.id = user.id
+      }
+      return token
+    },
+    async session({ session, token }) {
+      if (token) {
+        session.user.name = token.name
+        session.user.email = token.email
+        session.user.id = token.id
+      }
+      return session
+    },
   },
 }

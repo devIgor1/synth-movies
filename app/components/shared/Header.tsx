@@ -15,10 +15,6 @@ const Header = () => {
     setVisible(!visible)
   }
 
-  async function handleLogoutUser() {
-    await signOut()
-  }
-
   return (
     <div className="w-full font-vhs">
       <nav className="md:mx-14 p-5 flex-between">

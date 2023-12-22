@@ -4,7 +4,7 @@ import { GiStarsStack } from "react-icons/gi"
 import { BiSolidCameraMovie } from "react-icons/bi"
 import { FaBackward } from "react-icons/fa"
 
-const Dashboard = () => {
+const Dashboard = async () => {
   return (
     <div className="w-full min-h-screen bg-background-image bg-cover font-vhs">
       <div className="wrapper flex-center flex-col">
