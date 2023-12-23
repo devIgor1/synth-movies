@@ -45,3 +45,8 @@
     rgb(197, 52, 175) 2px 0px 1px, rgb(197, 52, 175) -2px 0px 1px,
     rgb(209, 4, 245) 0px 0px 10px;
 }
+
+.blue-text-shadow {
+  text-shadow: #22bceb 1px 2px 1px, #22bceb -1px -2px 1px, #22bceb 1px -2px 1px,
+    #22bceb 0px 2px 1px, #22bceb 0px -1px 1px, #22bceb 1px 0px 1px;
+}

@@ -19,7 +19,8 @@ const config: Config = {
           "url('https://68.media.tumblr.com/595a5fa01fe53ca0e4ca8f37bacc849d/tumblr_nve67mJtue1tanofjo1_500.gif')",
         "dashboard-theme": "url('/assets/images/dashboard-theme.png')",
         "register-movie": "url('/assets/images/newspaper.jpg')",
-        "my-movies-bg": "url('/assets/images/mymovies.jpg')",
+        "my-movies": "url('/assets/images/my-movies-bg.jpg')",
+        "the-countdown": "url('/assets/images/countdown.gif')",
       },
       colors: {
         header: "#3E005B",
