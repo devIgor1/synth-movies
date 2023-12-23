@@ -39,9 +39,7 @@ export default function Home() {
                 />
               </Link>
               <div className="flex items-center justify-between py-2 mb-5">
-                <h1 className="text-white font-bold pinkNeon-text-shadow">
-                  NE.AS
-                </h1>
+                <h1 className="text-[#FDC580] font-bold">NE.AS</h1>
               </div>
             </section>
           </section>
