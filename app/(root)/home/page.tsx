@@ -42,9 +42,6 @@ export default function Home() {
                 <h1 className="text-white font-bold pinkNeon-text-shadow">
                   NE.AS
                 </h1>
-                <span className="text-pinkNeon">
-                  <FaHeart />
-                </span>
               </div>
             </section>
           </section>
