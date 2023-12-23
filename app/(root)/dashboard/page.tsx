@@ -23,7 +23,7 @@ const Dashboard = async () => {
           <section className="grid flex-col lg:grid-cols-2 mt-6 gap-14 w-full max-w-[905px]">
             <section>
               <Link
-                href="/dashboard/favorites"
+                href="/dashboard/my-movies"
                 className="bg-pinkNeon p-2 flex-center gap-4 rounded-lg shadow-2xl text-shadow border-2 border-black hover:scale-105 duration-300"
               >
                 <h1 className="text-white text-xl md:text-2xl lg:text-3xl">
