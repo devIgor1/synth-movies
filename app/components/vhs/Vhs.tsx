@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect } from "react"
+import { useState, useEffect } from "react"
 
 const Vhs = () => {
   const [currentDate, setCurrentDate] = useState<Date>(new Date())
@@ -11,7 +11,7 @@ const Vhs = () => {
     if (alternateBackground) {
       redirectTimer = setTimeout(() => {
         window.location.href = "/home"
-      }, 3150)
+      }, 3000)
     }
 
     return () => clearTimeout(redirectTimer)
@@ -30,7 +30,7 @@ const Vhs = () => {
 
   return (
     <main
-      className={`w-full min-h-screen absolute bg-cover bg-center bg-no-repeat font-vhs ${
+      className={`w-full min-h-screen absolute bg-cover bg-center font-vhs ${
         alternateBackground ? "bg-the-countdown" : "bg-vhs-gif"
       }`}
     >

@@ -21,6 +21,7 @@ const config: Config = {
         "register-movie": "url('/assets/images/newspaper.jpg')",
         "my-movies": "url('/assets/images/my-movies-bg.jpg')",
         "the-countdown": "url('/assets/images/countdown.gif')",
+        "switch-page": "url('/assets/images/switchpage.gif')",
       },
       colors: {
         header: "#3E005B",
