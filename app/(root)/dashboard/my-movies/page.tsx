@@ -1,9 +1,9 @@
-const Favorites = () => {
+const MyMovies = () => {
   return (
     <div>
-      <h1>My Favorites Movies</h1>
+      <h1>My Movies</h1>
     </div>
   )
 }
 
-export default Favorites
+export default MyMovies
