@@ -12,7 +12,6 @@ const Movie = async () => {
 
   return (
     <div>
-      <h1 className="bg-black text-white text-4xl">{session.user.id}</h1>
       <NewMovieForm userId={session.user.id} />
     </div>
   )
