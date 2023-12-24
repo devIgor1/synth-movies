@@ -11,6 +11,7 @@ import { z } from "zod"
 import { IoIosArrowRoundBack } from "react-icons/io"
 import { api } from "@/lib/api"
 import { useEdgeStore } from "@/lib/edgestore"
+import { useRouter } from "next/navigation"
 
 const schema = z.object({
   title: z.string().min(1, { message: "Title is required!" }),
@@ -31,6 +32,8 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>
 
 const NewMovieForm = (userId: { userId: string }) => {
+  const router = useRouter()
+
   const [file, setFile] = useState<File>()
   const [url, setUrl] = useState<{
     url: string
@@ -63,6 +66,8 @@ const NewMovieForm = (userId: { userId: string }) => {
         cover: res.url,
         userId: userId,
       })
+
+      router.push("/dashboard")
     }
   }
 
