@@ -17,8 +17,6 @@ const MyMovies = async () => {
     },
   })
 
-  console.log(movies)
-
   return (
     <main className="w-full min-h-screen bg-my-movies bg-center bg-cover bg-no-repeat font-vhs">
       <Link
