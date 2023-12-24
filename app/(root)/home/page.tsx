@@ -1,8 +1,12 @@
 import Header from "@/app/components/shared/Header"
 import { IoIosSearch } from "react-icons/io"
 import Link from "next/link"
+import prisma from "@/lib/db"
+import MovieCard from "../dashboard/my-movies/components/card"
 
-export default function Home() {
+export default async function Home() {
+  const movies = await prisma.movie.findMany()
+
   return (
     <div className="w-full min-h-screen bg-background-image bg-no-repeat bg-center">
       <Header />
@@ -28,18 +32,20 @@ export default function Home() {
           </h1>
           <div className="border-b-2 border-blueNeon  w-full"></div>
           <section className="w-full grid grid-cols-1 md:gap-6 md:grid-cols-2 lg:grid-cols-4 p-5 rounded-lg">
-            <section className="w-full rounded-lg border-pinkNeon border-2 p-2 ">
-              <Link href="/movie/:id">
-                <img
-                  className="w-full h-full max-h-[300px] rounded-lg"
-                  src="/assets/images/movieTheme.jpg"
-                  alt="movie"
-                />
-              </Link>
-              <div className="flex items-center justify-between py-2 mb-5">
-                <h1 className="text-[#FDC580] font-bold">NE.AS</h1>
-              </div>
-            </section>
+            {movies.map((movie) => (
+              <article className="w-full rounded-lg border-pinkNeon shadow-lg shadow-pinkNeon border-2 hover:scale-105 duration-300">
+                <Link href={`/movie/${movie.id}`}>
+                  <img
+                    className="w-full rounded-lg"
+                    src={movie.cover}
+                    alt="movie"
+                  />
+                </Link>
+                <div className="flex items-center justify-between py-3 border-t-2 border-pinkNeon px-2">
+                  <h1 className="text-[#FDC580] font-bold">{movie.title}</h1>
+                </div>
+              </article>
+            ))}
           </section>
         </div>
       </div>

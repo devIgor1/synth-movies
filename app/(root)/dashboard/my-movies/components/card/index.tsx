@@ -30,7 +30,10 @@ const MovieCard = ({ movie }: { movie: MovieProps }) => {
       <div className="flex items-center justify-between py-3 border-t-2 border-pinkNeon px-2">
         <h1 className="text-[#FDC580] font-bold">{movie.title}</h1>
         <div className="flex-center gap-3">
-          <button onClick={handleDeleteMovie} className="text-white">
+          <button
+            onClick={handleDeleteMovie}
+            className="text-white hover:text-red-700 duration-300"
+          >
             <RiDeleteBinLine size={22} />
           </button>
         </div>
