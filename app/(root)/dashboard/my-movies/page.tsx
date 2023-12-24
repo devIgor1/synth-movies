@@ -1,6 +1,4 @@
 import Link from "next/link"
-import { RiDeleteBinLine } from "react-icons/ri"
-import { GrEdit } from "react-icons/gr"
 import { PiPopcornBold } from "react-icons/pi"
 import { LuCupSoda } from "react-icons/lu"
 import { IoCaretBackOutline } from "react-icons/io5"

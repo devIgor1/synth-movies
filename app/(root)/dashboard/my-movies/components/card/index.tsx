@@ -5,15 +5,13 @@ import { api } from "@/lib/api"
 import Link from "next/link"
 import { RiDeleteBinLine } from "react-icons/ri"
 import { useRouter } from "next/navigation"
-import { useEffect } from "react"
-import MyMovies from "../../page"
 
 const MovieCard = ({ movie }: { movie: MovieProps }) => {
   const router = useRouter()
 
   async function handleDeleteMovie() {
     try {
-      const response = await api.delete("/api/movie", {
+      await api.delete("/api/movie", {
         params: {
           id: movie.id,
         },
