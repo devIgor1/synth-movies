@@ -5,6 +5,8 @@ import { api } from "@/lib/api"
 import Link from "next/link"
 import { RiDeleteBinLine } from "react-icons/ri"
 import { useRouter } from "next/navigation"
+import { useEffect } from "react"
+import MyMovies from "../../page"
 
 const MovieCard = ({ movie }: { movie: MovieProps }) => {
   const router = useRouter()
@@ -27,7 +29,7 @@ const MovieCard = ({ movie }: { movie: MovieProps }) => {
       <Link href={`/movie/${movie.id}`}>
         <img className="w-full rounded-lg" src={movie.cover} alt="movie" />
       </Link>
-      <div className="flex items-center justify-between py-3 border-t-2 border-pinkNeon px-2">
+      <div className="flex items-center justify-between py-1 border-t-2 border-pinkNeon px-2">
         <h1 className="text-[#FDC580] font-bold">{movie.title}</h1>
         <div className="flex-center gap-3">
           <button

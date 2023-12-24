@@ -9,6 +9,7 @@ import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
 import Image from "next/image"
 import MovieCard from "./components/card"
+import RefreshButton from "@/app/components/shared/Button"
 
 const MyMovies = async () => {
   const session = await getServerSession(authOptions)

@@ -2,7 +2,6 @@ import Header from "@/app/components/shared/Header"
 import { IoIosSearch } from "react-icons/io"
 import Link from "next/link"
 import prisma from "@/lib/db"
-import MovieCard from "../dashboard/my-movies/components/card"
 
 export default async function Home() {
   const movies = await prisma.movie.findMany()

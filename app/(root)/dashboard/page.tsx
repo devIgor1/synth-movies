@@ -52,7 +52,7 @@ const Dashboard = async () => {
         <div className="mt-52 md:mt-20">
           <Link
             href="/home"
-            className="text-white text-3xl md:text-5xl flex-center gap-5 flex-col hover:text-pinkNeon"
+            className="text-white text-3xl md:text-5xl flex-center gap-5 flex-col hover:underline"
           >
             <FaBackward size={45} />
             Back to Home
