@@ -4,8 +4,21 @@ import { GrEdit } from "react-icons/gr"
 import { PiPopcornBold } from "react-icons/pi"
 import { LuCupSoda } from "react-icons/lu"
 import { IoCaretBackOutline } from "react-icons/io5"
+import prisma from "@/lib/db"
+import { getServerSession } from "next-auth"
+import { authOptions } from "@/lib/auth"
 
-const MyMovies = () => {
+const MyMovies = async () => {
+  const session = await getServerSession(authOptions)
+
+  const movies = await prisma.movie.findMany({
+    where: {
+      userId: session?.user.id,
+    },
+  })
+
+  console.log(movies)
+
   return (
     <main className="w-full min-h-screen bg-my-movies bg-center bg-cover bg-no-repeat font-vhs">
       <Link
@@ -31,106 +44,33 @@ const MyMovies = () => {
                 </span>
               </div>
               <section className="w-full grid g grid-cols-1 md:grid-cols-2 lg:grid-cols-4 p-10 gap-6 rounded-lg">
-                <section className="w-full rounded-lg border-pinkNeon shadow-lg shadow-pinkNeon border-2">
-                  <Link href="/movie/:id">
-                    <img
-                      className="w-full rounded-lg"
-                      src="/assets/images/movieTheme.jpg"
-                      alt="movie"
-                    />
-                  </Link>
-                  <div className="flex items-center justify-between py-3 border-t-2 border-pinkNeon px-2">
-                    <h1 className="text-[#FDC580] font-bold">NE.AS</h1>
-                    <div className="flex-center gap-3">
-                      <span className="text-white">
-                        <RiDeleteBinLine size={22} />
-                      </span>
-                      <span className="text-white">
-                        <GrEdit size={22} />
-                      </span>
+                {movies.map((movie) => (
+                  <section
+                    className="w-full rounded-lg border-pinkNeon shadow-lg shadow-pinkNeon border-2"
+                    key={movie.id}
+                  >
+                    <Link href="/movie/:id">
+                      <img
+                        className="w-full rounded-lg"
+                        src={movie.cover}
+                        alt="movie"
+                      />
+                    </Link>
+                    <div className="flex items-center justify-between py-3 border-t-2 border-pinkNeon px-2">
+                      <h1 className="text-[#FDC580] font-bold">
+                        {movie.title}
+                      </h1>
+                      <div className="flex-center gap-3">
+                        <span className="text-white">
+                          <RiDeleteBinLine size={22} />
+                        </span>
+                        <span className="text-white">
+                          <GrEdit size={22} />
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </section>
-                <section className="w-full rounded-lg border-pinkNeon shadow-lg shadow-pinkNeon border-2">
-                  <Link href="/movie/:id">
-                    <img
-                      className="w-full rounded-lg"
-                      src="/assets/images/movieTheme.jpg"
-                      alt="movie"
-                    />
-                  </Link>
-                  <div className="flex items-center justify-between py-3 border-t-2 border-pinkNeon px-2">
-                    <h1 className="text-[#FDC580] font-bold">NE.AS</h1>
-                    <div className="flex-center gap-3">
-                      <span className="text-white">
-                        <RiDeleteBinLine size={22} />
-                      </span>
-                      <span className="text-white">
-                        <GrEdit size={22} />
-                      </span>
-                    </div>
-                  </div>
-                </section>
-                <section className="w-full rounded-lg border-pinkNeon shadow-lg shadow-pinkNeon border-2">
-                  <Link href="/movie/:id">
-                    <img
-                      className="w-full rounded-lg"
-                      src="/assets/images/movieTheme.jpg"
-                      alt="movie"
-                    />
-                  </Link>
-                  <div className="flex items-center justify-between py-3 border-t-2 border-pinkNeon px-2">
-                    <h1 className="text-[#FDC580] font-bold">NE.AS</h1>
-                    <div className="flex-center gap-3">
-                      <span className="text-white">
-                        <RiDeleteBinLine size={22} />
-                      </span>
-                      <span className="text-white">
-                        <GrEdit size={22} />
-                      </span>
-                    </div>
-                  </div>
-                </section>
-                <section className="w-full rounded-lg border-pinkNeon shadow-lg shadow-pinkNeon border-2">
-                  <Link href="/movie/:id">
-                    <img
-                      className="w-full rounded-lg"
-                      src="/assets/images/movieTheme.jpg"
-                      alt="movie"
-                    />
-                  </Link>
-                  <div className="flex items-center justify-between py-3 border-t-2 border-pinkNeon px-2">
-                    <h1 className="text-[#FDC580] font-bold">NE.AS</h1>
-                    <div className="flex-center gap-3">
-                      <span className="text-white">
-                        <RiDeleteBinLine size={22} />
-                      </span>
-                      <span className="text-white">
-                        <GrEdit size={22} />
-                      </span>
-                    </div>
-                  </div>
-                </section>
-                <section className="w-full rounded-lg border-pinkNeon shadow-lg shadow-pinkNeon border-2">
-                  <Link href="/movie/:id">
-                    <img
-                      className="w-full rounded-lg"
-                      src="/assets/images/movieTheme.jpg"
-                      alt="movie"
-                    />
-                  </Link>
-                  <div className="flex items-center justify-between py-3 border-t-2 border-pinkNeon px-2">
-                    <h1 className="text-[#FDC580] font-bold">NE.AS</h1>
-                    <div className="flex-center gap-3">
-                      <span className="text-white">
-                        <RiDeleteBinLine size={22} />
-                      </span>
-                      <span className="text-white">
-                        <GrEdit size={22} />
-                      </span>
-                    </div>
-                  </div>
-                </section>
+                  </section>
+                ))}
               </section>
             </div>
           </div>
