@@ -12,6 +12,7 @@ import { IoIosArrowRoundBack } from "react-icons/io"
 import { api } from "@/lib/api"
 import { useEdgeStore } from "@/lib/edgestore"
 import { useRouter } from "next/navigation"
+import toast from "react-hot-toast"
 
 const schema = z.object({
   title: z.string().min(1, { message: "Title is required!" }),
@@ -50,6 +51,19 @@ const NewMovieForm = (userId: { userId: string }) => {
   })
 
   async function handleRegisterMovie(data: FormData) {
+    if (!file) {
+      toast("Your movie needs a cover!", {
+        style: {
+          borderRadius: "10px",
+          borderColor: "#000",
+          background: "#fff",
+          color: "#DC143C",
+          fontFamily: "VHS",
+          fontSize: "25px",
+        },
+      })
+    }
+
     if (file) {
       const res = await edgestore.movieImage.upload({ file })
 
@@ -57,7 +71,7 @@ const NewMovieForm = (userId: { userId: string }) => {
         url: res.url,
       })
 
-      await api.post("/api/movie", {
+      const response = await api.post("/api/movie", {
         title: data.title,
         description: data.description,
         director: data.director,
@@ -67,6 +81,18 @@ const NewMovieForm = (userId: { userId: string }) => {
         userId: userId,
       })
 
+      toast("Film created successfully!!", {
+        style: {
+          borderRadius: "10px",
+          borderColor: "#000",
+          background: "#fff",
+          color: "#000",
+          fontFamily: "VHS",
+          fontSize: "25px",
+        },
+      })
+
+      router.refresh()
       router.push("/dashboard")
     }
   }

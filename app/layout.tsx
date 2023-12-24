@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import "./globals.css"
 import AuthProvider from "./components/providers/auth-provider"
 import { EdgeStoreProvider } from "@/lib/edgestore"
+import { Toaster } from "react-hot-toast"
 
 export const metadata: Metadata = {
   title: "Synth Movies",
@@ -19,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Toaster position="top-right" />
         <AuthProvider>
           <EdgeStoreProvider>{children}</EdgeStoreProvider>
         </AuthProvider>
