@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { RiDeleteBinLine } from "react-icons/ri"
+import { GrEdit } from "react-icons/gr"
 import { PiPopcornBold } from "react-icons/pi"
 import { LuCupSoda } from "react-icons/lu"
 import { IoCaretBackOutline } from "react-icons/io5"
@@ -7,6 +8,7 @@ import prisma from "@/lib/db"
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
 import Image from "next/image"
+import MovieCard from "./components/card"
 
 const MyMovies = async () => {
   const session = await getServerSession(authOptions)
@@ -63,28 +65,7 @@ const MyMovies = async () => {
                 </div>
                 <section className="w-full grid g grid-cols-1 md:grid-cols-2 lg:grid-cols-4 p-10 gap-6 rounded-lg">
                   {movies.map((movie) => (
-                    <section
-                      className="w-full rounded-lg border-pinkNeon shadow-lg shadow-pinkNeon border-2"
-                      key={movie.id}
-                    >
-                      <Link href="/movie/:id">
-                        <img
-                          className="w-full rounded-lg"
-                          src={movie.cover}
-                          alt="movie"
-                        />
-                      </Link>
-                      <div className="flex items-center justify-between py-3 border-t-2 border-pinkNeon px-2">
-                        <h1 className="text-[#FDC580] font-bold">
-                          {movie.title}
-                        </h1>
-                        <div className="flex-center gap-3">
-                          <span className="text-white">
-                            <RiDeleteBinLine size={22} />
-                          </span>
-                        </div>
-                      </div>
-                    </section>
+                    <MovieCard movie={movie} key={movie.id} />
                   ))}
                 </section>
               </div>
