@@ -10,6 +10,7 @@ import { MdLocalMovies } from "react-icons/md"
 import { z } from "zod"
 import { IoIosArrowRoundBack } from "react-icons/io"
 import { api } from "@/lib/api"
+import { useEdgeStore } from "@/lib/edgestore"
 
 const schema = z.object({
   title: z.string().min(1, { message: "Title is required!" }),
@@ -31,6 +32,10 @@ type FormData = z.infer<typeof schema>
 
 const NewMovieForm = (userId: { userId: string }) => {
   const [file, setFile] = useState<File>()
+  const [url, setUrl] = useState<{
+    url: string
+  }>()
+  const { edgestore } = useEdgeStore()
 
   const {
     register,
@@ -42,16 +47,23 @@ const NewMovieForm = (userId: { userId: string }) => {
   })
 
   async function handleRegisterMovie(data: FormData) {
-    const response = await api.post("/api/movie", {
-      title: data.title,
-      description: data.description,
-      director: data.director,
-      duration: data.duration,
-      gender: data.gender,
-      cover: file?.name,
-      userId: userId,
-    })
-    console.log(response.data)
+    if (file) {
+      const res = await edgestore.movieImage.upload({ file })
+
+      setUrl({
+        url: res.url,
+      })
+
+      const response = await api.post("/api/movie", {
+        title: data.title,
+        description: data.description,
+        director: data.director,
+        duration: data.duration,
+        gender: data.gender,
+        cover: res.url,
+        userId: userId,
+      })
+    }
   }
 
   return (
