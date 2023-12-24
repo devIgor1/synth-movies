@@ -54,7 +54,7 @@ const NewMovieForm = (userId: { userId: string }) => {
         url: res.url,
       })
 
-      const response = await api.post("/api/movie", {
+      await api.post("/api/movie", {
         title: data.title,
         description: data.description,
         director: data.director,
