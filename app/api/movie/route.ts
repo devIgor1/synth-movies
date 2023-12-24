@@ -31,3 +31,32 @@ export async function POST(request: NextRequest) {
     return console.log(error)
   }
 }
+
+export async function DELETE(request: NextRequest) {
+  const session = await getServerSession(authOptions)
+
+  if (!session || !session.user || !session.user.id) {
+    return NextResponse.json({ error: "NOT AUTHORIZED!" }, { status: 401 })
+  }
+
+  const { searchParams } = new URL(request.url)
+  const userId = searchParams.get("id")
+
+  if (!userId) {
+    NextResponse.json({ error: "Failed to delete movie" }), { status: 400 }
+  }
+
+  try {
+    await prisma.movie.delete({
+      where: {
+        id: userId as string,
+      },
+    })
+
+    return NextResponse.json({ message: "Movie deleted successfully" })
+  } catch (error) {
+    NextResponse.json({ error: "Failed to delete movie" }), { status: 400 }
+  }
+
+  return NextResponse.json({ ok: true })
+}
