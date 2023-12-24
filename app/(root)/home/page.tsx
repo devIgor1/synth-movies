@@ -1,7 +1,5 @@
 import Header from "@/app/components/shared/Header"
-import Image from "next/image"
 import { IoIosSearch } from "react-icons/io"
-import { FaHeart } from "react-icons/fa"
 import Link from "next/link"
 
 export default function Home() {
