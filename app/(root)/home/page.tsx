@@ -31,9 +31,12 @@ export default async function Home() {
             Latest Releases
           </h1>
           <div className="border-b-2 border-blueNeon  w-full"></div>
-          <section className="w-full grid grid-cols-1 md:gap-6 md:grid-cols-2 lg:grid-cols-4 p-5 rounded-lg">
+          <section className="w-full grid grid-cols-1 gap-9 md:gap-6 md:grid-cols-2 lg:grid-cols-4 p-5 rounded-lg">
             {movies.map((movie) => (
-              <article className="w-full rounded-lg border-pinkNeon shadow-lg shadow-pinkNeon border-2 hover:scale-105 duration-300">
+              <article
+                key={movie.id}
+                className="w-full rounded-lg border-pinkNeon shadow-lg shadow-pinkNeon border-2 hover:scale-105 duration-300"
+              >
                 <Link href={`/movie/${movie.id}`}>
                   <img
                     className="w-full rounded-lg"
