@@ -6,6 +6,7 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import { MovieProps } from "@/app/types/movie.type"
 import { api } from "@/lib/api"
+import { AiOutlineLoading3Quarters } from "react-icons/ai"
 
 export default function Home() {
   const [movies, setMovies] = useState<MovieProps[]>([])
@@ -48,32 +49,43 @@ export default function Home() {
             Latest Releases
           </h1>
           <div className="border-b-2 border-blueNeon  w-full"></div>
-          <section className="w-full grid grid-cols-1 gap-9 md:gap-6 md:grid-cols-2 lg:grid-cols-4 p-5 rounded-lg">
-            {movies
-              .filter((movie) => {
-                return search.toLowerCase() === ""
-                  ? movie
-                  : movie.title.toLowerCase().includes(search)
-              })
+          {loading ? (
+            <div className="font-vhs w-full flex-center flex-col h-64 text-5xl text-white gap-6">
+              <h1 className="animate-pulse duration-300">Loading Movies...</h1>
+              <span className="animate-spin duration-300">
+                <AiOutlineLoading3Quarters />
+              </span>
+            </div>
+          ) : (
+            <section className="w-full grid grid-cols-1 gap-9 md:gap-6 md:grid-cols-2 lg:grid-cols-4 p-5 rounded-lg">
+              {movies
+                .filter((movie) => {
+                  return search.toLowerCase() === ""
+                    ? movie
+                    : movie.title.toLowerCase().includes(search)
+                })
 
-              .map((movie) => (
-                <article
-                  key={movie.id}
-                  className="w-full rounded-lg border-pinkNeon shadow-lg shadow-pinkNeon border-2 hover:scale-105 duration-300"
-                >
-                  <Link href={`/movie/${movie.id}`}>
-                    <img
-                      className="w-full rounded-lg"
-                      src={movie.cover}
-                      alt="movie"
-                    />
-                  </Link>
-                  <div className="flex items-center justify-between py-3 border-t-2 border-pinkNeon px-2">
-                    <h1 className="text-[#FDC580] font-bold">{movie.title}</h1>
-                  </div>
-                </article>
-              ))}
-          </section>
+                .map((movie) => (
+                  <article
+                    key={movie.id}
+                    className="w-full rounded-lg border-pinkNeon shadow-lg shadow-pinkNeon border-2 hover:scale-105 duration-300"
+                  >
+                    <Link href={`/movie/${movie.id}`}>
+                      <img
+                        className="w-full rounded-lg"
+                        src={movie.cover}
+                        alt="movie"
+                      />
+                    </Link>
+                    <div className="flex items-center justify-between py-3 border-t-2 border-pinkNeon px-2">
+                      <h1 className="text-[#FDC580] font-bold">
+                        {movie.title}
+                      </h1>
+                    </div>
+                  </article>
+                ))}
+            </section>
+          )}
         </div>
       </div>
     </div>
