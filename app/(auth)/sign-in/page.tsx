@@ -8,6 +8,7 @@ import Link from "next/link"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { useRouter } from "next/navigation"
+import toast from "react-hot-toast"
 
 const schema = z.object({
   email: z.string().min(1, { message: "Email is required!" }),
@@ -27,10 +28,24 @@ const Login = () => {
   const router = useRouter()
 
   async function handleLoginUser(data: FormData) {
-    await signIn("credentials", {
+    const signInResponse = await signIn("credentials", {
       ...data,
       redirect: false,
     })
+
+    if (signInResponse?.error) {
+      toast("Invalid email or password!", {
+        style: {
+          borderRadius: "10px",
+          borderColor: "#000",
+          background: "#fff",
+          color: "#EB139A",
+          fontFamily: "VHS",
+          fontSize: "25px",
+        },
+      })
+      return
+    }
 
     router.push("/home")
   }
