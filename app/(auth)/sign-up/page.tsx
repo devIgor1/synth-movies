@@ -64,7 +64,7 @@ const Register = () => {
         />
         HOME
       </Link>
-      <div className=" bg-loginForm flex-center p-10 border-2 border-white rounded-lg w-full max-w-[761px]">
+      <div className=" bg-registerForm flex-center p-10 border-2 border-white rounded-lg w-full max-w-[761px]">
         <form className="w-full" onSubmit={handleSubmit(handleRegisterUser)}>
           <div className="flex-center mb-8 animate-pulse">
             <h1 className="absolute text-5xl font-roadRage text-pinkNeon items-center text-center mx-auto">

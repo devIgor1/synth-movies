@@ -29,7 +29,7 @@ const config: Config = {
         pinkNeon: "#EB139A",
         logoNeon: "#FC6BA4",
         blueNeon: "#04d9ff",
-        loginForm: "#3A2B3F",
+        registerForm: "#110519",
         darkPurple: "#0E0012",
         darkBlue: "#14004E",
         newspaper: "#E8E8E8",
