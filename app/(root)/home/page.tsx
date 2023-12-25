@@ -68,11 +68,11 @@ export default function Home() {
                 .map((movie) => (
                   <article
                     key={movie.id}
-                    className="w-full rounded-lg border-pinkNeon shadow-lg shadow-pinkNeon border-2 hover:scale-105 duration-300"
+                    className="rounded-lg border-pinkNeon shadow-lg shadow-pinkNeon border-2 hover:scale-105 duration-300"
                   >
                     <Link href={`/movie/${movie.id}`}>
                       <img
-                        className="w-full rounded-lg"
+                        className="rounded-lg"
                         src={movie.cover}
                         alt="movie"
                       />
