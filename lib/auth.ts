@@ -6,7 +6,7 @@ import prisma from "@/lib/db"
 
 import bcrypt from "bcrypt"
 
-const authOptions: NextAuthOptions = {
+export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
     CredentialProvider({
@@ -66,4 +66,3 @@ const authOptions: NextAuthOptions = {
     },
   },
 }
-export default authOptions
