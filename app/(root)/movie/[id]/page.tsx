@@ -7,6 +7,7 @@ import { api } from "@/lib/api"
 import Image from "next/image"
 import Link from "next/link"
 import moment from "moment"
+import { AiOutlineLoading3Quarters } from "react-icons/ai"
 
 const MovieDetails = () => {
   const { id } = useParams()
@@ -28,10 +29,19 @@ const MovieDetails = () => {
         .catch(() => console.log("Movie not found!"))
     }
     loadMovie()
-  }, [])
+  }, [id])
 
   if (loading) {
-    return <h1>LOADING...</h1>
+    return (
+      <div className="h-screen w-full bg-loading-page">
+        <div className="h-screen flex-center flex-col bg-[#160A22]/80 text-5xl text-white gap-5 font-vhs">
+          <h1 className="animate-pulse duration-300">Loading Movie...</h1>
+          <span className="animate-spin duration-300">
+            <AiOutlineLoading3Quarters />
+          </span>
+        </div>
+      </div>
+    )
   }
 
   return (
@@ -94,7 +104,7 @@ const MovieDetails = () => {
       </div>
       <div className="flex-center flex-col wrapper bg-[#190713]/95">
         <h1 className="text-pinkNeon  text-lg md:text-xl mt-4">Description</h1>
-        <p className="text-[#F9DB59] text-center text-lg md:text-xl">
+        <p className="text-[#F9DB59] text-center text-lg">
           {movie?.description}
         </p>
       </div>

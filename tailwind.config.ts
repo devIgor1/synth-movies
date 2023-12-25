@@ -23,6 +23,7 @@ const config: Config = {
         "the-countdown": "url('/assets/images/countdown.gif')",
         "switch-page": "url('/assets/images/switchpage.gif')",
         "specific-movie": "url('/assets/images/specific-movie.jpg')",
+        "loading-page": "url('/assets/images/loading.jpg')",
       },
       colors: {
         header: "#3E005B",
