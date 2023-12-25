@@ -11,7 +11,7 @@ const Vhs = () => {
     if (alternateBackground) {
       redirectTimer = setTimeout(() => {
         window.location.href = "/home"
-      }, 3000)
+      }, 2600)
     }
 
     return () => clearTimeout(redirectTimer)
