@@ -30,6 +30,7 @@ const config: Config = {
         logoNeon: "#FC6BA4",
         blueNeon: "#04d9ff",
         registerForm: "#110519",
+        loginForm: "#2B182B",
         darkPurple: "#0E0012",
         darkBlue: "#14004E",
         newspaper: "#E8E8E8",
