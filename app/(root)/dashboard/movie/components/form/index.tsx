@@ -80,6 +80,7 @@ const NewMovieForm = (userId: { userId: string }) => {
         cover: res.url,
         userId: userId,
       })
+      router.refresh()
 
       toast("Film created successfully!!", {
         style: {
@@ -92,7 +93,6 @@ const NewMovieForm = (userId: { userId: string }) => {
         },
       })
 
-      router.refresh()
       router.push("/dashboard")
     }
   }
