@@ -45,7 +45,7 @@ const Register = () => {
     await request.json()
 
     if (!request.ok) {
-      toast("Email Already Exists!", {
+      toast.error("Email Already Exists!", {
         style: {
           borderRadius: "10px",
           borderColor: "#EB139A",
