@@ -3,7 +3,6 @@
 import Header from "@/app/components/shared/Header"
 import { IoIosSearch } from "react-icons/io"
 import Link from "next/link"
-import prisma from "@/lib/db"
 import { useEffect, useState } from "react"
 import { MovieProps } from "@/app/types/movie.type"
 import { api } from "@/lib/api"
