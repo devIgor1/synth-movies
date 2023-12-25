@@ -5,7 +5,6 @@ import { IoCaretBackOutline } from "react-icons/io5"
 import prisma from "@/lib/db"
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
-import Image from "next/image"
 import MovieCard from "./components/card"
 
 const MyMovies = async () => {
@@ -41,12 +40,7 @@ const MyMovies = async () => {
                   </Link>
                   !
                 </h1>
-                <Image
-                  src="/assets/images/nomovie.jpeg"
-                  alt="no-movie-error"
-                  width={600}
-                  height={500}
-                />
+                <img src="/assets/images/nomovie.jpeg" alt="no-movie-error" />
               </div>
             ) : (
               <div className="border-double border-4 border-blueNeon shadow-lg shadow-blueNeon rounded-lg relative">
