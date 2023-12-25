@@ -35,7 +35,7 @@ const MyMovies = async () => {
                   Produce your film{" "}
                   <Link
                     href="/dashboard/movie/new"
-                    className="text-blueNeon underline"
+                    className="text-pinkNeon underline"
                   >
                     HERE
                   </Link>
