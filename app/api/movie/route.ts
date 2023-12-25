@@ -69,16 +69,16 @@ export async function GET(request: NextRequest) {
   }
 
   const { searchParams } = new URL(request.url)
-  const movieId = searchParams.get("movieId")
+  const id = searchParams.get("id")
 
-  if (!movieId || movieId === "") {
+  if (!id || id === "") {
     return NextResponse.json({ error: "Movie not found" }, { status: 400 })
   }
 
   try {
     const movie = await prisma.movie.findFirst({
       where: {
-        id: movieId,
+        id: id,
       },
     })
 
