@@ -7,6 +7,7 @@ import Link from "next/link"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { useRouter } from "next/navigation"
+import toast from "react-hot-toast"
 
 const schema = z.object({
   name: z
@@ -41,13 +42,23 @@ const Register = () => {
       body: JSON.stringify(data),
     })
 
-    const response = await request.json()
-
-    router.push("/sign-in")
+    await request.json()
 
     if (!request.ok) {
-      console.log("error")
+      toast("Email Already Exists!", {
+        style: {
+          borderRadius: "10px",
+          borderColor: "#EB139A",
+          background: "#10021B",
+          color: "#EB139A",
+          fontFamily: "VHS",
+          fontSize: "25px",
+        },
+      })
+      return
     }
+
+    router.push("/sign-in")
   }
 
   return (
