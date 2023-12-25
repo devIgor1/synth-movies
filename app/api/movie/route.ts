@@ -60,3 +60,30 @@ export async function DELETE(request: NextRequest) {
 
   return NextResponse.json({ ok: true })
 }
+
+export async function GET(request: NextRequest) {
+  const session = await getServerSession(authOptions)
+
+  if (!session || !session.user || !session.user.id) {
+    return NextResponse.json({ error: "NOT AUTHORIZED!" }, { status: 401 })
+  }
+
+  const { searchParams } = new URL(request.url)
+  const movieId = searchParams.get("movieId")
+
+  if (!movieId || movieId === "") {
+    return NextResponse.json({ error: "Movie not found" }, { status: 400 })
+  }
+
+  try {
+    const movie = await prisma.movie.findFirst({
+      where: {
+        id: movieId,
+      },
+    })
+
+    return NextResponse.json(movie)
+  } catch (error) {
+    return NextResponse.json({ error: "Movie not found" }, { status: 400 })
+  }
+}
