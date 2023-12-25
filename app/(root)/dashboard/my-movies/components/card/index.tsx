@@ -5,6 +5,7 @@ import { api } from "@/lib/api"
 import Link from "next/link"
 import { RiDeleteBinLine } from "react-icons/ri"
 import { useRouter } from "next/navigation"
+import toast from "react-hot-toast"
 
 const MovieCard = ({ movie }: { movie: MovieProps }) => {
   const router = useRouter()
@@ -14,6 +15,16 @@ const MovieCard = ({ movie }: { movie: MovieProps }) => {
       await api.delete("/api/movie", {
         params: {
           id: movie.id,
+        },
+      })
+      toast("Successfully deleted movie!", {
+        style: {
+          borderRadius: "10px",
+          borderColor: "#EB139A",
+          background: "#10021B",
+          color: "#fff",
+          fontFamily: "VHS",
+          fontSize: "25px",
         },
       })
       router.refresh()
