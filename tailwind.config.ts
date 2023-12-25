@@ -22,6 +22,7 @@ const config: Config = {
         "my-movies": "url('/assets/images/mymovies.jpg')",
         "the-countdown": "url('/assets/images/countdown.gif')",
         "switch-page": "url('/assets/images/switchpage.gif')",
+        "specific-movie": "url('/assets/images/specific-movie.jpg')",
       },
       colors: {
         header: "#3E005B",

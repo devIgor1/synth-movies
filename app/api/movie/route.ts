@@ -62,12 +62,6 @@ export async function DELETE(request: NextRequest) {
 }
 
 export async function GET(request: NextRequest) {
-  const session = await getServerSession(authOptions)
-
-  if (!session || !session.user || !session.user.id) {
-    return NextResponse.json({ error: "NOT AUTHORIZED!" }, { status: 401 })
-  }
-
   const { searchParams } = new URL(request.url)
   const id = searchParams.get("id")
 
