@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Synth Movies
 
-First, run the development server:
+Um projeto que eu tenho muito carinho de apresentar pois além de ser um projeto focado em apresentar meus conhecimentos em desenvolvimento full-stack, também consegui abordar temas e paixões que tenho por meio da estilização.
+
+O projeto consiste em uma plataforma de "produzir/criar" seu filme, podendo excluir e visualizar o filme dos outros usuários.
+
+
+
+
+
+ 
+
+
+
+
+## Dependencias Necessárias
+
+Para fazer o uso desse projeto corretamente rode:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+  npm install 
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Referências
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+ - [Next](https://nextjs.org/)
+ - [React-hook-form](https://react-hook-form.com/)
+ - [TailwindCSS](https://tailwindcss.com/)
+ - [Zod](https://zod.dev/)
+ - [MongoDB](https://www.mongodb.com/)
+ - [Edgestore](https://edgestore.dev/docs/quick-start)
+ - [Axios](https://axios-http.com/ptbr/docs/intro)
+ - [JWT](https://www.npmjs.com/package/jsonwebtoken)
+ - [Bcrypt](https://www.npmjs.com/package/bcrypt)
+ - [Prisma](https://www.prisma.io/)
+ 
+ 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![image](https://github.com/devIgor1/synth-movies/assets/88665118/1b9df8d3-8361-4f22-83e7-6f33b0f0d1d3)
