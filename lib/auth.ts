@@ -5,8 +5,9 @@ import CredentialProvider from "next-auth/providers/credentials"
 import prisma from "@/lib/db"
 
 import bcrypt from "bcrypt"
+import NextAuth from "next-auth/next"
 
-export const authOptions: NextAuthOptions = {
+const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
     CredentialProvider({
@@ -16,6 +17,7 @@ export const authOptions: NextAuthOptions = {
         password: { label: "Password", type: "password" },
         name: { label: "Username", type: "text" },
       },
+
       async authorize(credentials, req): Promise<any> {
         if (!credentials?.email || !credentials?.password)
           throw new Error("Email or password must be provided")
@@ -66,3 +68,5 @@ export const authOptions: NextAuthOptions = {
     },
   },
 }
+const handler = NextAuth(authOptions)
+export { handler as GET, handler as POST }
