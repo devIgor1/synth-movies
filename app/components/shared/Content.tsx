@@ -1,27 +1,8 @@
-"use client"
-
-import { MovieProps } from "@/app/types/movie.type"
-import { api } from "@/lib/api"
+import prisma from "@/lib/db"
 import Link from "next/link"
-import { useRouter } from "next/navigation"
-import { useEffect, useState } from "react"
 
-const Content = () => {
-  const [movies, setMovies] = useState<MovieProps[]>([])
-
-  const router = useRouter()
-
-  useEffect(() => {
-    async function loadMovies() {
-      await api
-        .get("/api/movies")
-        .then((response) => response.data)
-        .then((response) => setMovies(response))
-      router.refresh()
-    }
-
-    loadMovies()
-  }, [])
+const Content = async () => {
+  const movies = await prisma.movie.findMany()
 
   return (
     <>
