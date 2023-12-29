@@ -14,7 +14,7 @@ const Content = async () => {
       <div className="wrapper">
         <div className=" bg-[#040110] font-vhs rounded-lg w-full h-full">
           <h1 className="text-3xl text-white pinkNeon-text-shadow p-4">
-            Latest Releases
+            Latest Releases!
           </h1>
           <div className="border-b-2 border-blueNeon  w-full"></div>
 
