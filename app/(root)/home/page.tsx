@@ -1,6 +1,5 @@
 import Content from "@/app/components/shared/Content"
 import Header from "@/app/components/shared/Header"
-import prisma from "@/lib/db"
 
 export default async function Home() {
   return (
