@@ -2,11 +2,7 @@ import prisma from "@/lib/db"
 import Link from "next/link"
 
 const Content = async () => {
-  const movies = await prisma.movie.findMany({
-    orderBy: {
-      release_date: "desc",
-    },
-  })
+  const movies = await prisma.movie.findMany()
 
   return (
     <>
