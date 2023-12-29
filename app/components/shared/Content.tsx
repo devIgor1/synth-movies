@@ -1,5 +1,6 @@
 import prisma from "@/lib/db"
 import Link from "next/link"
+import { Router } from "next/router"
 
 const Content = async () => {
   const movies = await prisma.movie.findMany()
