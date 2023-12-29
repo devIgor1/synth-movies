@@ -7,7 +7,7 @@ const Content = async () => {
   return (
     <>
       <div className="wrapper flex-center font-vhs">
-        <div className="relative w-full max-w-[320px] md:max-w-[460px]">
+        <div className="relative w-full max-w-[321px] md:max-w-[460px]">
           <div className="absolute inset-0 bg-pinkNeon animate-pulse rounded-3xl blur-md"></div>
         </div>
       </div>
