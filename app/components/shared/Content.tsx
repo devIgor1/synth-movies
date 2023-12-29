@@ -2,7 +2,7 @@ import prisma from "@/lib/db"
 import Link from "next/link"
 
 const Content = async () => {
-  const movies = await prisma.movie.findMany()
+  const movies = await prisma.movie.findMany({})
 
   return (
     <>
