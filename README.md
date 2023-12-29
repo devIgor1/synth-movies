@@ -38,6 +38,7 @@ Para fazer o uso desse projeto corretamente rode:
  - [JWT](https://www.npmjs.com/package/jsonwebtoken)
  - [Bcrypt](https://www.npmjs.com/package/bcrypt)
  - [Prisma](https://www.prisma.io/)
+ - [Moment](https://momentjs.com/)
  
  
 
