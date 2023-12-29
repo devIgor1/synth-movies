@@ -3,10 +3,13 @@
 import { MovieProps } from "@/app/types/movie.type"
 import { api } from "@/lib/api"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 
 const Content = () => {
   const [movies, setMovies] = useState<MovieProps[]>([])
+
+  const router = useRouter()
 
   useEffect(() => {
     async function loadMovies() {
@@ -14,6 +17,7 @@ const Content = () => {
         .get("/api/movies")
         .then((response) => response.data)
         .then((response) => setMovies(response))
+      router.refresh()
     }
 
     loadMovies()
