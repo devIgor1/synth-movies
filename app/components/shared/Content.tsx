@@ -7,20 +7,23 @@ import { useEffect, useState } from "react"
 import { MovieProps } from "@/app/types/movie.type"
 import { api } from "@/lib/api"
 import { AiOutlineLoading3Quarters } from "react-icons/ai"
+import { useRouter } from "next/navigation"
 
 const Content = () => {
   const [movies, setMovies] = useState<MovieProps[]>([])
   const [loading, setLoading] = useState<boolean>(true)
   const [search, setSearch] = useState<string>("")
-
+  const router = useRouter()
 
   useEffect(() => {
     async function fetchMovies() {
       await api.get("/api/movies").then((response) => {
         setMovies(response.data)
+        router.refresh()
         setLoading(false)
       })
     }
+
     fetchMovies()
   }, [])
 
