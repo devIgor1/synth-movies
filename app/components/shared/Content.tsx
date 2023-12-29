@@ -13,6 +13,7 @@ const Content = () => {
   const [loading, setLoading] = useState<boolean>(true)
   const [search, setSearch] = useState<string>("")
 
+
   useEffect(() => {
     async function fetchMovies() {
       await api.get("/api/movies").then((response) => {
@@ -20,7 +21,6 @@ const Content = () => {
         setLoading(false)
       })
     }
-
     fetchMovies()
   }, [])
 
@@ -50,7 +50,9 @@ const Content = () => {
           <div className="border-b-2 border-blueNeon  w-full"></div>
           {loading ? (
             <div className="font-vhs w-full flex-center flex-col h-64 text-5xl text-white gap-6">
-              <h1 className="animate-pulse duration-300">Loading Movies...</h1>
+              <h1 className="animate-pulse duration-300 flex-center text-center">
+                Loading Movies...
+              </h1>
               <span className="animate-spin duration-300">
                 <AiOutlineLoading3Quarters />
               </span>
