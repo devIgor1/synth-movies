@@ -1,23 +1,8 @@
-"use client"
-
-import { MovieProps } from "@/app/types/movie.type"
-import { api } from "@/lib/api"
 import prisma from "@/lib/db"
 import Link from "next/link"
-import { useEffect, useState } from "react"
 
-const Content = (movies: any) => {
-  const [movie, setMovie] = useState<MovieProps[]>([])
-
-  useEffect(() => {
-    async function loadMovies() {
-      await api
-        .get("/api/movies")
-        .then((response) => response.data)
-        .then((response) => setMovie(response))
-    }
-    loadMovies()
-  }, [])
+const Content = async () => {
+  const movies = await prisma.movie.findMany()
 
   return (
     <>
@@ -34,7 +19,7 @@ const Content = (movies: any) => {
           <div className="border-b-2 border-blueNeon  w-full"></div>
 
           <section className="w-full grid grid-cols-1 gap-9 md:gap-6 md:grid-cols-2 lg:grid-cols-4 p-5 rounded-lg">
-            {movie.map((movie) => (
+            {movies.map((movie) => (
               <article
                 key={movie.id}
                 className="rounded-lg border-pinkNeon shadow-lg shadow-pinkNeon border-2 hover:scale-105 duration-300"
