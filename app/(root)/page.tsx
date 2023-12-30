@@ -1,6 +1,6 @@
 import Vhs from "../components/vhs/page"
 
-export default async function PreHome() {
+export default function PreHome() {
   return (
     <>
       <Vhs />

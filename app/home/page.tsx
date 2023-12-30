@@ -3,7 +3,7 @@ import prisma from "@/lib/db"
 import Link from "next/link"
 
 export default async function Home() {
-  const movies = await prisma.movie.findMany()
+  const allMovies = await prisma.movie.findMany()
 
   return (
     <div className="w-full min-h-screen bg-background-image bg-no-repeat bg-center">
@@ -21,7 +21,7 @@ export default async function Home() {
           <div className="border-b-2 border-blueNeon  w-full"></div>
 
           <section className="w-full grid grid-cols-1 gap-9 md:gap-6 md:grid-cols-2 lg:grid-cols-4 p-5 rounded-lg">
-            {movies.map((movie) => (
+            {allMovies.map((movie) => (
               <article
                 key={movie.id}
                 className="rounded-lg border-pinkNeon shadow-lg shadow-pinkNeon border-2 hover:scale-105 duration-300"
