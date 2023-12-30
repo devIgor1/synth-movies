@@ -3,7 +3,18 @@ import prisma from "@/lib/db"
 import Link from "next/link"
 
 export default async function Home() {
-  const movies = await prisma.movie.findMany()
+  const movies = await prisma.movie.findMany({
+    select: {
+      cover: true,
+      description: true,
+      director: true,
+      duration: true,
+      gender: true,
+      id: true,
+      release_date: true,
+      title: true,
+    },
+  })
 
   return (
     <div className="w-full min-h-screen bg-background-image bg-no-repeat bg-center">
