@@ -1,9 +1,12 @@
 import Header from "@/app/components/shared/Header"
 import prisma from "@/lib/db"
+import { revalidatePath } from "next/cache"
 import Link from "next/link"
 
 export default async function Home() {
   const allMovies = await prisma.movie.findMany()
+
+  revalidatePath("/", "page")
 
   return (
     <div className="w-full min-h-screen bg-background-image bg-no-repeat bg-center">
